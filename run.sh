@@ -9,15 +9,15 @@ apt update
 apt install unzip 
 unzip cogagent-vqa.zip?download=true
 cd ..
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+# curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+# unzip awscliv2.zip
+# sudo ./aws/install
 mkdir data 
 cd data
-mkdir images
-aws s3 cp s3://canva-data/images CogVLM/data/images --recursive
-aws s3 cp s3://canva-data/combined.json CogVLM/data/
-cd ../finetune_demo
+# mkdir images
+aws s3 cp s3://canva-data3.0/ ./ --recursive
+cd ..
+cd finetune_demo
 # Finetuning
 bash finetune_cogagent_lora.sh
-aws s3 cp /CogVLM/finetune_demo/checkpoints/ s3://canva-model/ --recursive 
+aws s3 cp checkpoints/ s3://canva-model/ --recursive 
