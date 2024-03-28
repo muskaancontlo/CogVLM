@@ -66,7 +66,7 @@ def read_json(path):
     with open(path, 'r') as file:
         data = json.load(file)
         for item in data:
-            item['imagePath'] = "/CogVLM/data" + item['imagePath'][1:]
+            item['imagePath'] = "/CogVLM/data/all" + item['imagePath'][1:]
         return data
 
 class ItemDataset(Dataset):
